@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.Intro-Card{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 1rem;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover{
+    animation: removeOverflow 1s forwards;
+}
+
+@keyframes removeOverflow{
+    to{
+        overflow: initial;
+    }
+}
+
+.card:not(:hover){
+    animation: addOverflow 1s forwards;
+}
+
+@keyframes addOverflow {
+    0%{
+        overflow: initial;
+    }
+    100%{
+        overflow: hidden;
+    }
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card .content{
+    position: absolute;
+    width: 90%;
+    background-color: white;
+    bottom: -10rem;
+    right: 0;
+    left: 0;
+    padding: 15px 20px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1 10px 20px rgba(0,0,0,0.4);
+}
+
+.card:hover .content{
+    animation: showData 1s forwards;
+}
+
+@keyframes showData {
+    50%{
+        transform: translateY(-10rem);
+    }
+    100%{
+        transform: translateY(-6rem);
+    }
+}
+
+.card :not(:hover).content{
+    
+}
+
+@keyframes hideData{
+    0%{
+        transform: translateY(-6rem);
+    }
+    50%{
+        transform: translateY(-10rem);
+    }
+
+    100%{
+        transform: translateY(0.5rem);
+    }
+}
+
+.content .title{
+    font-size: 18px;
+    font-weight: 700;
+
+}
+
+.content .desc{
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.content .btn{
+    width: 150px;
+    height: 40px;
+    background-color: rgb(60, 233, 175);
+    color: black;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.content .btn:hover{
+    background-color:rgb(88, 211, 211) ;
+}
+
+@media (max-width:1220px){
+.Intro-Card{
+    row-gap: 5.5rem;
+}
+}
+
+
+
